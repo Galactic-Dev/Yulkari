@@ -1,3 +1,6 @@
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
 @interface NSDistributedNotificationCenter : NSNotificationCenter
 @end
 
@@ -22,7 +25,7 @@ int openOption;
 %end
 
 %hook SFSafariViewController
--(id)initWithURL:(NSURL *)arg1 {
+-(id)initWithURL:(NSURL *)arg1 configuration:(id)arg2 {
   [[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(YLKDissmissViewController) name:@"CloseInAppSafariViewController" object:nil];
   return %orig;
 }
@@ -35,7 +38,7 @@ int openOption;
 
 %group automaticallyOpenSafariGroup
 %hook SFSafariViewController
--(id)initWithURL:(NSURL *)arg1 {
+-(id)initWithURL:(NSURL *)arg1 configuration:(id)arg2{
   [[UIApplication sharedApplication] openURL:arg1 options:@{} completionHandler:nil];
   return %orig;
 }

@@ -1,7 +1,7 @@
 Package: com.galacticdev.yulkari
 Name: Yulkari
 Depends: mobilesubstrate
-Version: 0.0.2
+Version: 0.0.3
 Architecture: iphoneos-arm
 Description: Dismiss the in app safari view when opening web page in safari from app. 
 Maintainer: Galactic Dev
